@@ -1,0 +1,115 @@
+ <!-- myapp/templates/myapp/index.html -->
+{##}
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#  <h1>RSS Reader</h1>#}
+{#  <ul>#}
+{#    {% for feed in feeds %}#}
+{#      <li>#}
+{#        <a href="{{ feed.link }}">{{ feed.title }}</a>#}
+{#        <p>{{ feed.description }}</p>#}
+{#        <small>{{ feed.pub_date }}</small>#}
+{#      </li>#}
+{#    {% endfor %}#}
+{#  </ul>#}
+{#{% endblock %}#}
+
+
+
+{##}
+{# <html>#}
+{#  <login>#}
+{#    <meta charset="utf-8">#}
+{#    <title>RSS Reader</title>#}
+{#     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>#}
+{#<!-- 引用 Axios -->#}
+{#    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>#}
+{#  </login>#}
+{#  <body>#}
+{#    <div id="app">#}
+{#      <h1>RSS Reader</h1>#}
+{#      <ul>#}
+{#        <li v-for="item in items" :key="item.title">#}
+{#          <a :href="item.link">{{ item.title }} 测试测试测试</a>#}
+{#          <p>{{ item.description }}</p>#}
+{#          <p>{{ item.pub_date }}</p>#}
+{#        </li>#}
+{#      </ul>#}
+{#    </div>#}
+{##}
+{#  </body>#}
+{#</html>#}
+{##}
+{# <script>#}
+{#     const app = new Vue({#}
+{#  el: '#app',#}
+{#  data: {#}
+{#    items: [],#}
+{#  },#}
+{#  mounted() {#}
+{#    axios.get('/rss_reader/')#}
+{#      .then(response => {#}
+{#        this.items = response.data;#}
+{#      })#}
+{#      .catch(error => {#}
+{#        console.error(error);#}
+{#      });#}
+{#  },#}
+
+{# </script>#}
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rss_Reader</title>
+    <link rel="stylesheet" href="css/mystyle.css">
+   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div  v-html="htmlMessage">
+
+     <div id="app">
+{% verbatim %}
+     <div v-for="feed in feeds">
+    <h2>{{feed.title}}     </h2>
+    <p>{{feed.pub_date}} </p>
+    <p>{{feed.description}} </p>
+    <a :href="feed.link">{{feed.title}}</a>
+         <img v-bind:src="feed.img">
+
+</div>
+    {% endverbatim %}
+    </div>
+
+     </div>
+<script>
+     var app = new Vue({
+        el: '#app',
+         data() {
+            return {
+             feeds:[]
+         }
+  },
+
+
+
+        mounted() {
+            axios.get('/rss_reader')
+            .then(response => {
+                this.feeds = response.data ;
+                console.log(response.data)
+            })
+            .catch(error => {
+                console.log(error);
+
+            });
+        }
+    });
+</script>
+</body>
+</html>

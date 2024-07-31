@@ -1,0 +1,287 @@
+
+ <!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+    
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+    
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts-wordcloud.min.js"></script>
+    
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </style>
+</head>
+<body>
+
+              <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="/headblog" data-hover="首页">首页rss</a></li>
+
+
+
+
+
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+
+    <div class="container" >
+        <div id="c7432348d0d14e069d3596700515c3fc" class="chart-container" style="width:900px; height:500px; "></div>
+    
+    <script>
+        
+        var chart_c7432348d0d14e069d3596700515c3fc = echarts.init(
+            document.getElementById('c7432348d0d14e069d3596700515c3fc'), 'white', {renderer: 'canvas'});
+        
+        var option_c7432348d0d14e069d3596700515c3fc = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "color": [
+        "#5470c6",
+        "#91cc75",
+        "#fac858",
+        "#ee6666",
+        "#73c0de",
+        "#3ba272",
+        "#fc8452",
+        "#9a60b4",
+        "#ea7ccc"
+    ],
+    "series": [
+        {
+            "type": "wordCloud",
+            "name": "\u70ed\u70b9\u5206\u6790",
+            "shape": "circle",
+            "rotationRange": [
+                -90,
+                90
+            ],
+            "rotationStep": 45,
+            "girdSize": 20,
+            "sizeRange": [
+                6,
+                66
+            ],
+            "data": [
+                {
+                    "name": "\u516c\u4ea4\u8fd0\u8f93\u7ba1\u7406",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(32,97,59)"
+                    }
+                },
+                {
+                    "name": "\u516c\u8def\uff08\u6c34\u8def\uff09\u4ea4\u901a",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(115,112,22)"
+                    }
+                },
+                {
+                    "name": "\u623f\u5c4b\u4e0e\u56fe\u7eb8\u4e0d\u7b26",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(77,1,0)"
+                    }
+                },
+                {
+                    "name": "\u6709\u7ebf\u7535\u89c6",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(159,82,66)"
+                    }
+                },
+                {
+                    "name": "\u793e\u4f1a\u6cbb\u5b89",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(87,22,160)"
+                    }
+                },
+                {
+                    "name": "\u6797\u4e1a\u8d44\u6e90",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(95,148,24)"
+                    }
+                },
+                {
+                    "name": "\u5176\u4ed6\u884c\u653f\u4e8b\u4e1a\u6536\u8d39",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(122,62,59)"
+                    }
+                },
+                {
+                    "name": "\u7ecf\u8425\u6027\u6536\u8d39",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(70,127,148)"
+                    }
+                },
+                {
+                    "name": "\u98df\u54c1\u5b89\u5168\u4e0e\u536b\u751f",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(158,36,13)"
+                    }
+                },
+                {
+                    "name": "\u4f53\u80b2\u6d3b\u52a8",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(20,84,5)"
+                    }
+                },
+                {
+                    "name": "\u6709\u7ebf\u7535\u89c6\u5b89\u88c5\u53ca\u8c03\u8bd5\u7ef4\u62a4",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(77,108,11)"
+                    }
+                },
+                {
+                    "name": "\u4f4e\u4fdd\u7ba1\u7406",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(64,17,63)"
+                    }
+                },
+                {
+                    "name": "\u52b3\u52a8\u4e89\u8bae",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(26,151,131)"
+                    }
+                },
+                {
+                    "name": "\u793e\u4f1a\u798f\u5229\u53ca\u4e8b\u52a1",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(9,104,44)"
+                    }
+                },
+                {
+                    "name": "\u4e00\u6b21\u4f9b\u6c34\u95ee\u9898",
+                    "value": "11",
+                    "textStyle": {
+                        "color": "rgb(27,38,86)"
+                    }
+                }
+            ],
+            "drawOutOfBound": false,
+            "textStyle": {
+                "emphasis": {}
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [],
+            "selected": {},
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1,
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5,
+        "order": "seriesAsc"
+    },
+    "title": [
+        {
+            "show": true,
+            "text": "\u70ed\u70b9\u5206\u6790",
+            "target": "blank",
+            "subtarget": "blank",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "fontSize": 23
+            }
+        }
+    ]
+};
+        chart_c7432348d0d14e069d3596700515c3fc.setOption(option_c7432348d0d14e069d3596700515c3fc);
+        
+        
+    </script>
+    </div>
+
+</body>
+</html>

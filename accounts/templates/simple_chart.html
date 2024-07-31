@@ -1,0 +1,76 @@
+{% import 'macro' as macro %}
+ <!DOCTYPE html>
+<html>
+<head>
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>{{ chart.page_title }}</title>
+    {{ macro.render_chart_dependencies(chart) }}
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        {#nav {#}
+        {#    display: flex;#}
+        {#    justify-content: space-between;#}
+        {#    align-items: center;#}
+        {#    background-color: #333;#}
+        {#    color: #fff;#}
+        {#    padding: 1rem;#}
+        {#}#}
+        {#nav a {#}
+        {#    color: #fff;#}
+        {#    text-decoration: none;#}
+        {#    font-weight: bold;#}
+        {#}#}
+    </style>
+</head>
+<body>
+
+              <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="/headblog" data-hover="首页">首页rss</a></li>
+{#                            <li class="cl-effect-11"><a href="{% url 'accounts:rss_list' username=user.name page=page %}">我的rss</a></li>#}
+
+{#                            <li class="cl-effect-11"><a href="about.html" data-hover="rss ">rss智能分类和数据分析</a></li>#}
+{#                            <li class="cl-effect-11"><a href="{% url 'accounts:rss_refresh' rss_id=user_id %}">Refresh</a></li>#}
+{#                            <li class="cl-effect-11"><button id="refresh-btn">首页刷新</button></li>#}
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+
+    <div class="container" {% if chart.fill_bg %}style="background-color: {{ chart.bg_color }}"{% endif %}>
+        {{ macro.render_chart_content(chart) }}
+
+
+
+
+    <button onclick="location.reload()">刷新   {{ tag }}</button>
+          {% for tag in alltag %}
+
+    <div>  用户最喜欢的 {{ tag }}  </div>
+    {%  endfor %}
+    </div>
+<style>
+		button {
+			background-color: blue;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+	</style>
+</body>
+</html>

@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Rss&amp;聚合</title>
+
+      <!-- meta -->
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- css -->
+      <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+      <link rel="stylesheet" href="../static/css/pace.css">
+      <link rel="stylesheet" href="../static/css/custom.css">
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <!-- js -->
+      <script src="../static/js/jquery-2.1.3.min.js"></script>
+      <script src="../static/js/bootstrap.min.js"></script>
+      <script src="../static/js/pace.min.js"></script>
+      <script src="../static/js/modernizr.custom.js"></script>
+  </head>
+  <body>
+
+<div class="container">
+    <header id="site-header">
+        <div class="row">
+            <div class="col-md-4 col-sm-5 col-xs-8">
+                <div class="logo">
+                    <h1><a href="headindex.html"><b>Rss</b> &amp;聚合      </a></h1>
+                <h3>
+                    {% if username %}
+             <p>欢迎 {{ username }} {{user_id}} 用户！</p>
+                      {% endif %}
+
+                </h3>
+                </div>
+            </div><!-- col-md-4 -->
+            <div class="col-md-8 col-sm-7 col-xs-4">
+                <nav class="main-nav" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" id="trigger-overlay" class="navbar-toggle">
+                            <span class="ion-navicon"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="cl-effect-11"><a href="/headblog" data-hover="首页">首页rss</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'accounts:rss_list' username=user.name page=page %}">我的rss</a></li>
+
+{#                            <li class="cl-effect-11"><a href="about.html" data-hover="rss ">rss智能分类和数据分析</a></li>#}
+{#                            <li class="cl-effect-11"><a href="{% url 'accounts:rss_refresh' rss_id=user_id %}">Refresh</a></li>#}
+                            <li class="cl-effect-11"><button id="refresh-btn">首页刷新</button></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+                <div id="header-search-box">
+                    <a id="search-menu" href="#"><span id="search-icon" class="ion-ios-search-strong"></span></a>
+                    <div id="search-form" class="search-form">
+                        <form role="search" method="get" id="searchform" action="#">
+                            <input type="search" placeholder="搜索" required>
+                            <button type="submit"><span class="ion-ios-search-strong"></span></button>
+                        </form>
+                    </div>
+                </div>
+            </div><!-- col-md-8 -->
+        </div>
+    </header>
+</div>
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
+<div class="copyrights">Modified by <a href="http://zmrenwu.com/">追梦人物的博客</a></div>
+ <div id="app">
+{% verbatim %}
+  <div class="content-body">
+    <div class="container">
+
+      <div class="row">
+
+        <main class="col-md-8">
+          <article class="post post-{{ post.id }}" v-for="post in feeds" :key="post.id">
+            <header class="entry-header">
+              <h1 class="entry-title">
+                <a :href="post.link">{{ post.title }}</a>
+              </h1>
+                <div class="thumbnail1" style="margin-right:400px">
+                    <img :src="post.img_src" alt="缩略图" class="thumbnail1" style="object-fit: cover; width: 400px; height: 200px;  background-position: center center;margin-left:90px;margin-right:400px; /* 图片在容器中心显示 */" >
+                </div>
+              <div class="entry-meta">
+                <span class="post-category"><a href="#">{{ post.category }}</a></span>
+                <span class="post-date"><a href="#"><time class="entry-date"
+                                                          :datetime="post.pub_date">{{post.pub_date}}</time></a></span>
+                <span class="post-author"><a href="#">{{ post.title }}</a></span>
+
+                <span class="views-count"><a :href="post.link">到达原文</a></span>
+              </div>
+            </header>
+            <div class="entry-content clearfix">
+              <p>&nbsp&nbsp {{ post.expert}}</p>
+              <div class="read-more cl-effect-14">
+
+                <a v-bind:href="'/headblog/posts/' + post.id + '/'" class="more-link">继续阅读 <span class="meta-nav">→</span></a>
+                   {% endverbatim %}
+              </div>
+            </div>
+          </article>
+          <div class="no-post" v-if="!feeds.length">暂时还没有订阅源！</div>
+
+
+        </main>
+         <aside class="col-md-4">
+
+
+                <div class="widget widget-tag-cloud">
+                    <h3 class="widget-title">标签云</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Django</a>
+                        </li>
+                        <li>
+                            <a href="#">Python</a>
+                        </li>
+                        <li>
+                            <a href="#">Java</a>
+                        </li>
+                        <li>
+                            <a href="#">笔记</a>
+                        </li>
+                        <li>
+                            <a href="#">文档</a>
+                        </li>
+                        <li>
+                            <a href="#">AngularJS</a>
+                        </li>
+                        <li>
+                            <a href="#">CSS</a>
+                        </li>
+                        <li>
+                            <a href="#">JavaScript</a>
+                        </li>
+                        <li>
+                            <a href="#">Snippet</a>
+                        </li>
+                        <li>
+                            <a href="#">jQuery</a>
+                        </li>
+                    </ul>
+                </div>
+
+             </aside>    ##添加标签页
+      </div>
+
+    </div>
+  </div>
+
+
+ </div>
+
+
+
+<footer id="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p class="copyright">&copy 2023<a href="http://www.cssmoban.com/"
+                                                        target="_blank" title="模板之家"> keke</a>
+                    - 由<a href="http://zmrenwu.com/" title="网页模板" target="_blank">keke</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Mobile Menu -->
+<div class="overlay overlay-hugeinc">
+    <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
+    <nav>
+        <ul>
+            <li><a href="/headindex ">首页</a></li>
+            <li><a href="full-width.html">博客</a></li>
+            <li><a href="about.html">关于</a></li>
+            <li><a href="contact.html">联系</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+      <!-- 其它内容 -->
+<script src="../static/js/script.js"></script>
+<script>
+    // 获取刷新按钮元素
+const refreshBtn = document.getElementById('refresh-btn');
+
+// 监听点击事件
+refreshBtn.addEventListener('click', () => {
+  // 发送 AJAX 请求
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', '/rss_reader');
+  xhr.onload = () => {
+    if (xhr.status === 200) {
+      // 刷新成功，重新加载页面
+      location.reload();
+    } else {
+      // 刷新失败，提示错误信息
+      alert('刷新失败！');
+    }
+  };
+  xhr.send();
+});
+
+
+
+
+      var app = new Vue({
+      el: '#app',
+       data() {
+          return {
+           feeds:[],
+           post: {
+        id: 1,
+        expert: '这是文章内容',
+      },
+
+
+
+       }
+},
+
+
+
+      created() {
+    axios.get('/sqloperate')
+      .then(response => {
+        this.feeds = response.data.reverse();
+        console.log(response.data)
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  },
+  mounted() {
+    // 可以在这里对渲染后的组件进行操作
+  }
+
+
+
+  });
+
+</script>
+  </body>
+</html>

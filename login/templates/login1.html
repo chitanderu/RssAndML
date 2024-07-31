@@ -1,0 +1,108 @@
+ <head>
+
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+     <script src="../static/vue.js"></script>
+      <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+     <link rel="stylesheet" href="../static/style.css">
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+
+
+    <body>
+  <div id="app">
+    <div class="login-box">
+      <h1>Login</h1>
+      <el-form ref="form" :model="form" label-width="80px" methid>
+        <el-form-item label="Username" prop="username">
+          <el-input v-model="form.username"></el-input>
+        </el-form-item>
+        <el-form-item label="Password" prop="password">
+          <el-input type="password" v-model="form.password"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm">Login</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
+  </div>
+  <!-- 引入 Vue.js 和 Element UI JavaScript 文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        form: {
+          username: '',
+          password: ''
+        }
+      },
+      methods: {
+        submitForm() {
+          this.$refs.form.validate(valid => {
+            if (valid) {
+              // 登录逻辑
+              // 这里仅为示例，假设用户名和密码都为 "admin"
+              if (this.form.username === 'admin' && this.form.password === 'admin') {
+                alert('Login succeeded!');
+              } else {
+                alert('Username or password is incorrect!');
+              }
+            } else {
+              console.log('Form validation failed');
+              return false;
+            }
+          });
+        }
+      }
+    });
+  </script>
+
+{#  <style>#}
+{#      body {#}
+{#  background-color: #1b1d1d;#}
+{#  background-image: radial-gradient(#4d4d4d 1px, transparent 1px),#}
+{#    radial-gradient(#7b8386 1px, transparent 1px);#}
+{#  background-size: 20px 20px;#}
+{#  background-position: 0 0, 10px 10px;#}
+{#}#}
+{##}
+{#.headblog-box {#}
+{#  width: 400px;#}
+{#  margin: 0 auto;#}
+{#  margin-top: 120px;#}
+{#  padding: 40px;#}
+{#  border-radius: 4px;#}
+{#  background-color: #fff;#}
+{#  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);#}
+{#}#}
+{##}
+{#.headblog-box h1 {#}
+{#  text-align: center;#}
+{#  font-size: 36px;#}
+{#  margin-bottom: 40px;#}
+{#}#}
+{# .animated-bg {#}
+{#    position: relative;#}
+{#    width: 100%;#}
+{#    height: 100%;#}
+{#    overflow: hidden;#}
+{#  }#}
+{##}
+{#.canvas {#}
+{#    position: absolute;#}
+{#    top: 0;#}
+{#    left: 0;#}
+{#    width: 100%;#}
+{#    height: 100%;#}
+{#  }#}
+{#  </style>#}
+</body>

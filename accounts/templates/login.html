@@ -1,0 +1,87 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU0XH6o7P0gYTQRw9JuGjqZ5nK3qpf5Qb1/7VhmgK0Tk5f" crossorigin="anonymous">
+</head>
+{% block content %}
+  <div class="login-page">
+    <div class="form">
+      <h2>用户登录</h2>
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {% for error in field.errors %}
+              <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+          </div>
+
+
+
+        {% endfor %}
+        <button type="submit" class="btn login-btn">登录</button>
+      </form>
+      <form action="{% url 'accounts:register' %}" method="get">
+        <button type="submit" class="btn register-btn">注册</button>
+      </form>
+    <div style="color: red; background-color: #f2dede; padding: 10px; border: 1px solid #ebccd1;">
+         {% if form.errors %}
+        <div class="alert alert-danger">
+          {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        <</div>
+        </div>
+      {% endif %}
+{% endblock %}
+    </div>
+  </div>
+
+  <style>
+    .login-page {
+      width: 360px;
+      padding: 8% 0 0;
+      margin: auto;
+    }
+    .form {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 360px;
+      margin: 0 auto 100px;
+      padding: 45px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form input[type="text"],
+    .form input[type="password"] {
+      font-family: "Roboto", sans-serif;
+      outline: 0;
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+    .login-btn,
+    .register-btn {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      outline: 0;
+      background: #03a9f4;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #fff;
+      font-size: 14px;
+      -webkit-transition: all 0.3 ease;
+      transition: all 0.3 ease;
+      cursor: pointer;
+    }
+    .login-btn:hover,
+    .register-btn:hover {
+      background: #1dc8cd;
+    }
+  </style>

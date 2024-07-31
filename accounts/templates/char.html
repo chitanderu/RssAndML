@@ -1,0 +1,11 @@
+  {% block content %}
+  <h1>{{ title }}</h1>
+
+  <div class="container">
+    {% if chart.fill_bg %}style="background-color: {{ chart.bg_color }}"{% endif %}>
+      {{ chart|safe }}
+    </div>
+  </div>
+
+
+{% endblock %}
